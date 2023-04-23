@@ -1,0 +1,20 @@
+/********* START OF STYLES *********/
+
+[disabled] {
+    cursor: not-allowed !important;
+}
+
+.dim-out {
+    opacity : 0.5;
+    filter : blur(0.1rem);
+}
+
+.number-highlight {
+    box-shadow: 0 0 0.5rem 0.5rem grey !important;
+}
+
+.dark-mode {
+    filter : invert(1);
+}
+
+/********* END OF STYLES *********/
