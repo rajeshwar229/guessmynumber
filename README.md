@@ -1,2 +1,2 @@
-# https-rajeshwar229.github.io-guessmynumber-
+# https://rajeshwar229.github.io/guessmynumber/
 Guess My Number Game
