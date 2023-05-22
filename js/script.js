@@ -65,7 +65,7 @@ $(function(){
         return {
             // This will generate numbers from 10-40 range based on user selection
             generateNums : function (container, limitNum) {
-                for(let i = 1; i <= limitNum.val(); i++){
+                for(let i=1; i <= limitNum.val(); i++){
                     container.append(`<li class="d-inline-block">
                     <button class="num new-num btn btn-dark font-weight-bold btn-lg m-3">${i}</button></li>`);
                 }
@@ -202,18 +202,25 @@ $(function(){
 
                 // Most of the game logic
                 this.gameTurn = function (systemTurn) {
+
+                    // systemTurn will be passed true for system turn
+                    if (systemTurn) {
+                        // Storing system guess element, so we don't need to call it again.
+                        var newNumData = this.systemGuess();
+                    }
+
                     // To remove highlight on previous number
                     gameCtrl.addRemoveCls(DOM.numberHighlight(), '', 'number-highlight');
 
                     // Storing target element either by system or player
-                    const targetNumber = systemTurn ? this.systemGuess() : event.target;
+                    const targetNumber = systemTurn ? newNumData : event.target;
 
                     // removing new-num and adding old-num classes for the guessed number.
                     gameCtrl.addRemoveCls($(targetNumber), 'old-num dim-out number-highlight', 'new-num')
                             .attrChange($(targetNumber), 'disabled', false);
 
                     // executing check number for result
-                    this.checkNumber(systemTurn ? parseInt(this.systemGuess()[0].innerText) : parseInt(event.target.innerText), parseInt(DOM.yourNum.val()));
+                    this.checkNumber(systemTurn ? parseInt(newNumData[0].innerText) : parseInt(event.target.innerText), parseInt(DOM.yourNum.val()));
                     return this;
                 }
 
