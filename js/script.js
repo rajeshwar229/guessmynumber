@@ -204,9 +204,10 @@ $(function(){
                 this.gameTurn = function (systemTurn) {
 
                     // systemTurn will be passed true for system turn
+                    let newNumData;
                     if (systemTurn) {
                         // Storing system guess element, so we don't need to call it again.
-                        var newNumData = this.systemGuess();
+                        newNumData = this.systemGuess();
                     }
 
                     // To remove highlight on previous number
