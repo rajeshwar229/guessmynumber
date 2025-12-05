@@ -64,10 +64,10 @@ $(function(){
 
         return {
             // This will generate numbers from 10-40 range based on user selection
-            generateNums : function (container, limitNum) {
+            generateNums : function (container, limitNum, yourNum) {
                 for(let i=1; i <= limitNum.val(); i++){
                     container.append(`<li class="d-inline-block">
-                    <button class="num new-num btn btn-dark font-weight-bold btn-lg m-3">${i}</button></li>`);
+                    <button class="num new-num btn ${yourNum === i ? btn-dark : btn-warning} font-weight-bold btn-lg m-3">${i}</button></li>`);
                 }
                 return this;
             },
@@ -265,7 +265,7 @@ $(function(){
             // Once game is started, will generate numbers and show users number, so he don't need to remember it.
             DOM.startGame.on('click', () => {
                 console.info('%cGAME STARTED', "color: white; font-weight: bold; background-color: rgba(0,0,0,0.5);padding: 2px");
-                gameCtrl.generateNums(DOM.gameNumbers, DOM.limitNum)
+                gameCtrl.generateNums(DOM.gameNumbers, DOM.limitNum, DOM.yourNum.val())
                         .addContent(DOM.showNumber, `Your Number is : ${DOM.yourNum.val()}`);
             });
 
@@ -345,5 +345,6 @@ $(function(){
     controller.init();
 
 });
+
 
 /********* END OF SCRIPT *********/
