@@ -67,7 +67,7 @@ $(function(){
             generateNums : function (container, limitNum, yourNum) {
                 for(let i=1; i <= limitNum.val(); i++){
                     container.append(`<li class="d-inline-block">
-                    <button class="num new-num btn ${yourNum === i ? btn-dark : btn-warning} font-weight-bold btn-lg m-3">${i}</button></li>`);
+                    <button class="num new-num btn ${yourNum === i ? 'btn-dark' : 'btn-warning'} font-weight-bold btn-lg m-3">${i}</button></li>`);
                 }
                 return this;
             },
@@ -348,3 +348,4 @@ $(function(){
 
 
 /********* END OF SCRIPT *********/
+
